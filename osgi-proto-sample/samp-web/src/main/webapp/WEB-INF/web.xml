@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<!--<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"-->
+	<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+	<!--xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"-->
+	<!--metadata-complete="false">-->
+    <display-name>Vaadin Web Application</display-name>
+
+    <context-param>
+        <description>Vaadin production mode</description>
+        <param-name>productionMode</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <!--<servlet>-->
+        <!--<servlet-name>Vaadin Application Servlet</servlet-name>-->
+        <!--<servlet-class>com.vaadin.server.VaadinServlet</servlet-class>-->
+        <!--<init-param>-->
+            <!--<description>Vaadin UI to display</description>-->
+            <!--<param-name>UI</param-name>-->
+            <!--<param-value>ru.acs.vaadin.MyVaadinUI</param-value>-->
+        <!--</init-param>-->
+        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
+            <!--&lt;!&ndash;<description>Application widgetset</description>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-name>widgetset</param-name>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-value>ru.acs.vaadin.AppWidgetSet</param-value>&ndash;&gt;-->
+        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>Vaadin Application Servlet</servlet-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <filter>
+          <filter-name>guiceFilter</filter-name>
+          <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+      </filter>
+
+      <filter-mapping>
+          <filter-name>guiceFilter</filter-name>
+          <url-pattern>/*</url-pattern>
+      </filter-mapping>
+
+      <!--<listener>-->
+          <!--<listener-class>ru.proto.samp.guice.AppGuiceServletConfig</listener-class>-->
+      <!--</listener>-->
+</web-app>
